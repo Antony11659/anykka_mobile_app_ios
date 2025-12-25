@@ -1,0 +1,12 @@
+0) API
+    - JSON from BackEnd
+1) UI
+    - LogIn, SingIn, LogOut, SingOut pages
+    - Logic for token to remember the user
+2) BackEnd
+
+3) DB
+
+4) Deployment
+
+5) Security
