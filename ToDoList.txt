@@ -1,8 +1,9 @@
 0) API
     - JSON from BackEnd
 1) UI
-    - find and setUp any lib for logIn signIn
-    - LogIn/LogOut (token)
+    - setUp navigation
+    + find and setUp React Native Elements lib
+    * LogIn/LogOut (token)
     - SingIn/SingOut
 2) BackEnd
     - LogIn/LogOut
