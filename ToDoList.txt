@@ -1,12 +1,15 @@
 0) API
     - JSON from BackEnd
 1) UI
-    - LogIn, SingIn, LogOut, SingOut pages
-    - Logic for token to remember the user
+    - find and setUp any lib for logIn signIn
+    - LogIn/LogOut (token)
+    - SingIn/SingOut
 2) BackEnd
-
+    - LogIn/LogOut
+    - SingIn/SingOut
 3) DB
-
+    - LogIn/LogOut
+    - SingIn/SingOut
 4) Deployment
 
 5) Security
