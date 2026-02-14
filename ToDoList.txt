@@ -5,7 +5,7 @@
     + find and setUp React Native Elements lib
     * LogIn/LogOut (token)
         + handleLogIn() 
-        * store token
+        * store token 
 
     - SingIn/SingOut
 2) BackEnd
