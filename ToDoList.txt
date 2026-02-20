@@ -1,19 +1,25 @@
 0) API
     - JSON from BackEnd
-1) UI
-    - setUp navigation
-    + find and setUp React Native Elements lib
-    * LogIn/LogOut (token)
-        + handleLogIn() 
-        * store token 
+1) App structure:
+├── app/
+│   ├── _layout.tsx                    # Root: Wrap with SupabaseProvider
+│   ├── (auth)/                        # Auth screens
+│   │   ├── login.tsx
+│   │   └── signup.tsx
+│   └── (tabs)/                       # Main app
+│       ├── index.tsx
+│       └── profile.tsx
+├── lib/
+│   └── supabase.ts                   # Supabase client setup
+└── utils/                            # Less needed - Supabase handles auth
+---
+What You Need to Implement
+1. lib/supabase.ts - Initialize Supabase client
+2. app/_layout.tsx - Check initial session, provide auth state
+3. app/(auth)/login.tsx - Use supabase.auth.signInWithPassword()
+4. app/(auth)/signup.tsx - Use supabase.auth.signUp()
+5. app/(tabs)/profile.tsx - Use supabase.auth.signOut()
 
-    - SingIn/SingOut
-2) BackEnd
-    - LogIn/LogOut
-    - SingIn/SingOut
-3) DB
-    - LogIn/LogOut
-    - SingIn/SingOut
-4) Deployment
+2) Deployment
 
-5) Security
+3) Security
