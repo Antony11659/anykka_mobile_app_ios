@@ -18,7 +18,7 @@ const saveToken = async (value:string) => {
 
 export const isUserLoggedIn = async() => {
   try{
-    const token = await AsyncStorage.getItem(storageKey);
+    const token = await AsyncStorage.getItem(storageKey)
     console.log(token);
     if (token) {
       return true;
