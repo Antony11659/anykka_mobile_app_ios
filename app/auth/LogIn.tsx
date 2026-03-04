@@ -1,23 +1,71 @@
 import { createClient } from '@supabase/supabase-js';
+import 'expo-sqlite/localStorage/install';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from "react-native";
 
-import dotenv from 'dotenv';
-dotenv.config({ path: '../../.env' })
+const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL;
+const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY;
 
-const SUPABASE_URL = process.env.SUPABASE_URL
-const SUPABASE_KEY = process.env.SUPABASE_URL
-
+console.log(SUPABASE_URL);
 console.log(SUPABASE_KEY);
+
+
 // Create a single supabase client for interacting with your database
-const supabase = createClient('https://xyzcompany.supabase.co', 'publishable-or-anon-key')
+// const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const supabase = createClient(SUPABASE_URL ?? "", SUPABASE_KEY ?? "", {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+  },
+})
+
+// const getUsers = async () => {
+//   const {data, error} = await supabase
+//     .from('users')
+//     .select('*')
+//     .single()
+
+//   if (error) console.error('Error', error)
+//   else console.log("Data: ", data)
+// }
 
 export default function MainPage () {
-    return (
-        <View style={styles.container}>
-          <Text style={styles.title}>This is logeIn Page!</Text>
-        </View>
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState<any[]>([]);
 
-   );
+  useEffect (()=> {
+  const fetchUsers = async () => {
+    const {data, error} = await supabase
+      .from('users')
+      .select('*')
+
+    if (error) {
+      console.error('Error', error)
+    } else {
+      console.log("Data: ", data);
+      setUsers(data);
+    }
+    setLoading(false);
+  };
+  fetchUsers();
+
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      {loading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <>
+          {users?.map((user) => (
+            <Text key={user.id}>{user.user_name}</Text>
+          ))}
+        </>
+      )}
+    </View>
+  );
 
 };
 
