@@ -1,6 +1,39 @@
-0) API
+📱 Language Learning App - Development Plan
+
+Phase 1: Users Table CRUD + Login (Priority)
+1. Verify Supabase connection - Ensure app connects to DB
+2. Create/verify users table in Supabase:
+   - id (uuid, primary key)
+   - email (unique)
+   - user_name
+   - created_at
+3. Implement CRUD functions in app:
+   - [ ] Create user (signup)
+   - [ ] Read users (list)
+   - [ ] Update user (edit)
+   - [ ] Delete user (remove)
+4. Build Login page with:
+   - [ ] Email/password form
+   - [ ] Sign up form
+   - [ ] Auth flow using Supabase Auth
+5. Test CRUD - Verify all operations work
+Phase 2: Deploy App
+- [ ] Build iOS app (expo run:ios)
+- [ ] Test on device/simulator
+- [ ] Deploy to TestFlight (optional)
+Phase 3: Main Features (After Deployment)
+- [ ] Create tab navigation (Main + Profile)
+- [ ] Build Main page (language learning)
+- [ ] Build Profile page
+- [ ] Add user_progress table
+- [ ] Add words table
+- [ ] Add user_words table
+- [ ] Implement progress tracking
+
+API
     - JSON from BackEnd
-1) App structure:
+
+App structure:
 ├── app/
 │   ├── _layout.tsx                    # Root: Wrap with SupabaseProvider
 │   ├── (auth)/                        # Auth screens
@@ -14,12 +47,8 @@
 └── utils/                            # Less needed - Supabase handles auth
 ---
 What You Need to Implement
-1. lib/supabase.ts - Initialize Supabase client
+1. lib/supabase.ts - Initialize Supabase client --In Progress
 2. app/_layout.tsx - Check initial session, provide auth state
 3. app/(auth)/login.tsx - Use supabase.auth.signInWithPassword()
 4. app/(auth)/signup.tsx - Use supabase.auth.signUp()
 5. app/(tabs)/profile.tsx - Use supabase.auth.signOut()
-
-2) Deployment
-
-3) Security
